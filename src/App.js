@@ -24,7 +24,6 @@ const App = () => {
               <Route exact path="/contact" element={<ContactPage />}></Route>
             </Routes>
           </div>
-          
         </div>
       </div>
     </div>

@@ -2,9 +2,68 @@ import React,{ useState } from "react";
 import Footers from "./footers";
 import AboutImage from "../assets/AboutPage.jpg";
 import ScrollToTopButton from "./ScrollToTopButton";
+import {getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import {storage} from "../firebaseConfig.js";
 
 const CareerPage = () => 
 {
+  const [name, setName] = useState();
+  const [number, setNumber] = useState();
+  const [altNum, setAltNum] = useState();
+  const [email, setEail] = useState();
+  const [edu, setEdu] = useState();
+  const [exp, setExp] = useState();
+  const [gen, setGen] = useState();
+  const [add, setAdd] = useState();
+  const [message, setMessage] = useState();
+  const [file, setFile] = useState();
+  const [fileUrl, setFileUrl] = useState();
+  
+  const CareerHandler = (e) => {
+    e.preventDefault();
+    const uploadForm = async(durl) => {
+      const res = await fetch("https://pharma-app-cb174-default-rtdb.firebaseio.com/career.json", {
+        method: "POST",
+        headers: {
+          "Content_Type": "Application/json"
+        },
+        body: JSON.stringify({
+          name,
+          number,
+          email,
+          altNum,
+          education: edu,
+          experience: exp,
+          Gender: gen,
+          address: add,
+          message,
+          Resume: durl,
+        })
+      });
+      setName("");
+      setAltNum("");
+      setMessage("");
+      setNumber("");
+      setGen("");
+      setEail("");
+      setExp("");
+      }
+    // console.log(file);
+    if(file){
+      const imageRef=ref(storage,`images/${file.name}`);
+      uploadBytes(imageRef, file).then(snapshot => {
+        return getDownloadURL(snapshot.ref)
+      })
+      .then(downloadURL => {
+        setFileUrl(downloadURL);
+        console.log('Download URL', downloadURL)
+        uploadForm(downloadURL);
+      })
+    }
+    
+
+
+  };
  
   return (
     <div>
@@ -43,6 +102,8 @@ const CareerPage = () =>
                       name="name"
                       placeholder="Name of Applicant"
                       className="w-full bg-gray-100 rounded border border-gray-300 focus:border-black text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                      onChange = {(e) => setName(e.target.value)}
+                      value = {name}
                     />
                   </div>
                 </div>
@@ -54,6 +115,8 @@ const CareerPage = () =>
                       name="number"
                       placeholder="Contact No."
                       className="w-full bg-gray-100 rounded border border-gray-300 focus:border-black text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                      onChange = {(e) => setNumber(e.target.value)}
+                      value = {number}
                     />
                   </div>
                 </div>
@@ -65,6 +128,8 @@ const CareerPage = () =>
                       name="number"
                       placeholder="Alternate Contact No."
                       className="w-full bg-gray-100 rounded border border-gray-300 focus:border-black text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                      onChange = {(e) => setAltNum(e.target.value)}
+                      value = {altNum}
                     />
                   </div>
                 </div>
@@ -76,6 +141,8 @@ const CareerPage = () =>
                       name="email"
                       placeholder="E-mail"
                       className="w-full bg-gray-100 rounded border border-gray-300 focus:border-black text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                      onChange = {(e) => setEail(e.target.value)}
+                      value = {email}
                     />
                   </div>
                 </div>
@@ -88,6 +155,8 @@ const CareerPage = () =>
                       name="text"
                       placeholder="Education"
                       className="w-full bg-gray-100 rounded border border-gray-300 focus:border-black text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                      onChange = {(e) => setEdu(e.target.value)}
+                      value = {edu}
                     />
                   </div>
                 </div>
@@ -99,6 +168,8 @@ const CareerPage = () =>
                       name="text"
                       placeholder="Total Work Experience"
                       className="w-full bg-gray-100 rounded border border-gray-300 focus:border-black text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                      onChange = {(e) => setExp(e.target.value)}
+                      value = {exp}
                     />
                   </div>
                 </div>
@@ -109,6 +180,8 @@ const CareerPage = () =>
                       name="gender"
                       id="gender"
                       className="w-full h-10 bg-gray-100 rounded border border-gray-300 focus:border-black text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out invalid:text-[green]"
+                      onChange = {(e) => setGen(e.target.value)}
+                      value = {gen}
                       placeholder="Gender"
                     >
                       <option value="gender" disabled selected>
@@ -134,22 +207,14 @@ const CareerPage = () =>
                 <div className="p-2 w-1/2">
                   <div className="relative">
                     <input
-                      type="text"
-                      id="number"
-                      name="number"
-                      placeholder="Alternate Contact No."
-                      className="w-full bg-gray-100 rounded border border-gray-300 focus:border-black text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                    />
-                  </div>
-                </div>
-                <div className="p-2 w-1/2">
-                  <div className="relative">
-                    <input
                       type="file"
                       id="file"
                       name="file"
                       placeholder="Resume Upload"
                       className=""
+                      onChange = {(e) => setFile(e.target.files[0])}
+                      // value = {file}
+                      required
                     />
                   </div>
                 </div>
@@ -161,6 +226,8 @@ const CareerPage = () =>
                       name="address"
                       className="w-full bg-gray-100 rounded border border-gray-300 focus:border-black h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
                       placeholder="Address"
+                      onChange = {(e) => setAdd(e.target.value)}
+                      value = {add}
                     ></textarea>
                   </div>
                 </div>
@@ -171,11 +238,14 @@ const CareerPage = () =>
                       name="message"
                       className="w-full bg-gray-100 rounded border border-gray-300 focus:border-black h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
                       placeholder="Message"
+                      onChange = {(e) => setMessage(e.target.value)}
+                      value = {message}
                     ></textarea>
                   </div>
                 </div>
                 <div className="flex flex-col items-center justify-center p-2 w-full">
-                  <button className="bg-[#0F172A] text-[#FFFFFF] rounded-3xl ml-[15px] mt-10 px-[50px] py-[10px] text-[20px]  hover:bg-white hover:text-black">
+                  <button className="bg-[#0F172A] text-[#FFFFFF] rounded-3xl ml-[15px] mt-10 px-[50px] py-[10px] text-[20px]  hover:bg-white hover:text-black"
+                  onClick={CareerHandler}>
                     Submit
                   </button>
                 </div>

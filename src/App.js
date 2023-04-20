@@ -6,8 +6,10 @@ import Footers from "./components/footers.jsx";
 import Home from "./components/Home.jsx";
 import AboutPage from "./components/AboutPage.jsx";
 import CareerPage from "./components/CareerPage.jsx";
+import OurProducts from "./components/OurProducts.jsx"
 import ContactPage from "./components/ContactPage.jsx";
 import { Route, Routes } from "react-router-dom";
+import SkuferzPage from "./components/SkuferzPage.jsx";
 
 
 const App = () => {
@@ -22,6 +24,8 @@ const App = () => {
               <Route exact path="/about" element={<AboutPage />}></Route>
               <Route exact path="/career" element={<CareerPage />}></Route>
               <Route exact path="/contact" element={<ContactPage />}></Route>
+              <Route exact path="/products" element={<OurProducts />}></Route>
+              <Route exact path="/skuferz" element={<SkuferzPage />}></Route>
             </Routes>
           </div>
         </div>

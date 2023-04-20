@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+.fade-anim img {
+  animation: fadeAnim 0.5s ease-out;
+}
+
+@keyframes fadeAnim {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
 @import url('https: //fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap');
 
 @layer base {

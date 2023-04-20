@@ -6,7 +6,7 @@ import ScrollToTopButton from "./ScrollToTopButton";
 const AboutPage = () => {
   return (
     <div>
-      <div className=" px-[80px] ml-[-80px] mr-[-80px]">
+      <div className=" px-[80px] ml-[-80px] mr-[-80px] ">
         <img
           src={AboutImage}
           className="w-[2000px] h-[350px]  justify-center"
@@ -23,59 +23,71 @@ const AboutPage = () => {
       <div>
         <p>&nbsp;</p>
       </div>
-      <div className="grid grid-cols-2 ml-5">
+      <div className="grid grid-cols-2 ml-5 ">
         <div>
           <img
             src={require("../assets/home1.jpg")}
             alt=""
+            className=""
             width={657.48}
             height={438.57}
           />
         </div>
         <div className="ml-[-120px] mt-[-30px]">
           <p className="mt-5">
+            <div>Welcome to Skuds Pharmaceuticals!</div>
+            <p>&nbsp;</p>
             <div>
-              Skuds Lifecare is a reputable integrated pharmaceutical company
-              headquartered in Ahmedabad, Gujarat. They specialize in marketing
-              high-quality finished products in the Indian sub-continent. Skuds
-              Lifecare is committed to producing top-notch drugs at
-              manufacturing units that are WHO-GMP certified and FDA compliant.
+              We are an up and coming pharmaceutical company committed to
+              revolutionizing the healthcare industry with our high-quality
+              products and services. Our mission is to make a positive impact on
+              humanity by providing affordable and accessible healthcare
+              solutions.
             </div>
             <p>&nbsp;</p>
             <div>
-              As an ISO 9001:2015 certified company, Skuds Lifecare ensures that
-              their products meet stringent quality standards. Their team is
-              dedicated to providing innovative therapeutic solutions and is
-              ready to face any challenges ahead.
+              At Skuds Pharmaceuticals, we understand that the quality of a
+              pharmaceutical product is crucial for its efficacy and safety.
+              Therefore, we take great care in sourcing our raw materials from
+              verified supply chain partners and performing comprehensive
+              testing on all our ingredients. We have in-house testing
+              capabilities such as HPLC and GC, which enable us to test for
+              impurities like Ethylene Glycol and Diethylene Glycol in Propylene
+              Glycol, Glycerin, PEG, Sorbitol used as base for liquid
+              formulations.
             </div>
             <p>&nbsp;</p>
             <div>
               {" "}
-              skUds Healthcare has an extensive and varied collection of
-              pharmaceutical products that encompass a broad spectrum of
-              therapeutic categories, including orthopaedics, neurology,
-              gastroenterology, analgesics, anti-depressants, and anxiolytics.
-              The company provides formulations in all available dosage forms,
-              ensuring that patients can obtain the required medication in the
-              most suitable and efficacious delivery mode.
+              Despite being a relatively new player in the industry, we are
+              proud to say that we have already made significant strides in
+              fulfilling our mission. During the Covid-19 pandemic, we remained
+              committed to supplying high-quality healthcare products to our
+              customers, despite the extreme shortage of Propylene Glycol. We
+              procured it from verified supply chain partners and continued with
+              our process of testing by GC, even though it caused us commercial
+              losses due to delayed supplies.
             </div>
             <p>&nbsp;</p>
             <div>
-              What sets skUds Healthcare apart is our unwavering focus on
-              providing quality and cost-effective health solutions. Our
-              commitment to our guiding values of customer focus, passion,
-              collaboration, transparency, and integrity is at the core of
-              everything we do. By embodying these values in every action we
-              take, we are able to achieve operational excellence and make a
-              positive impact in the healthcare industry. At skUds Healthcare,
-              our values are the foundation of our commitment to patients and
-              our dedication to making a difference.
+              At Skuds Pharmaceuticals, we believe that everyone deserves access
+              to affordable and high-quality healthcare. We continuously strive
+              to innovate and improve our products and services to meet the
+              ever-changing needs of our customers. Join us on this journey as
+              we strive to make a positive impact on humanity, one healthcare
+              solution at a time.
             </div>
+            <p>&nbsp;</p>
+            <div>
+              Thank you for choosing Skuds Pharmaceuticals as your trusted
+              healthcare partner.
+            </div>
+            <p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; </p>
           </p>
-          <p>&nbsp; &nbsp; &nbsp;</p>
         </div>
       </div>
       <div>
+        <p>&nbsp; &nbsp; &nbsp;</p>
         <Footers />
         <ScrollToTopButton />
       </div>

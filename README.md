@@ -1,3 +1,10 @@
+This Project is completed by
+
+Astik Mehta    UI20CS10
+Abhishek Kumar UI20CS01
+Krish Sajnani  UI20CS33
+
+# About Project
 Website for the company skUds pharmacueticals made using React, Next.js and Firebase.
 
 Project Status This project is currently in development. Currently available locally. Will be deployed after fine tuning

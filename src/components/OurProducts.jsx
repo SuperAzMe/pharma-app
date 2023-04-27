@@ -12,12 +12,13 @@ import joycox from "../assets/joycox.jpg";
 import rabtiva from "../assets/rabtiva.jpg";
 import clavator from "../assets/32.jpg";
 import montifab from "../assets/Montifab.jpg";
+import Footers from "./footers";
 
 
 const Skills = () => {
   return (
     <div>
-      <div className=" px-[80px] ml-[-80px] mr-[-80px] ">
+      <div className=" px-[80px] ml-[-80px] mr-[-80px]">
         <img
           src={AboutImage}
           className="w-[2000px] h-[350px]  justify-center"
@@ -172,6 +173,7 @@ const Skills = () => {
           </div>
         </div>
       </div>
+      <Footers />
     </div>
   );
 };

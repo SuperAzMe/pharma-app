@@ -10,6 +10,10 @@ import OurProducts from "./components/OurProducts.jsx"
 import ContactPage from "./components/ContactPage.jsx";
 import { Route, Routes } from "react-router-dom";
 import SkuferzPage from "./components/SkuferzPage.jsx";
+import WellenaPage from "./components/WellenaPage.jsx";
+import SkudolPage from "./components/SkudolPage.jsx";
+import NplinPage from "./components/NplinPage.jsx";
+
 
 
 const App = () => {
@@ -26,6 +30,9 @@ const App = () => {
               <Route exact path="/contact" element={<ContactPage />}></Route>
               <Route exact path="/products" element={<OurProducts />}></Route>
               <Route exact path="/skuferz" element={<SkuferzPage />}></Route>
+              <Route exact path="/wellena" element={<WellenaPage />}></Route>
+              <Route exact path="/skudol" element={<SkudolPage />}></Route>
+              <Route exact path="/nplin" element={<NplinPage />}></Route>
             </Routes>
           </div>
         </div>

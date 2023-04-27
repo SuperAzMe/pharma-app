@@ -12,7 +12,7 @@ const SkuferzPage = () => {
             alt=""
           />
           <div className="absolute text-5xl text-white top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            Skurz
+            Skuferz
           </div>
           <div className="absolute text-3xl text-white top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2">
             Our Products/ SkuFerz
